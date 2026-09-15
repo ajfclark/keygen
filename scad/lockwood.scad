@@ -1,6 +1,8 @@
 use <keygen.scad>
 include <lockwood.gen.scad>
 
+function key_code_to_heights(code, depth_table) = [for(i=key_enum(code)) depth_table[search(code[i], "0123456789A")[0]]];
+
 module lockwood_classic(bitting="",
                        outline_name="5-pin",
                        warding_name="LW4") {
@@ -36,7 +38,6 @@ module lockwood_classic(bitting="",
     
     cut_locations = [for(i=[.240:0.1563:1.022]) i*25.4];
     depth_table = [for(i=[0.337:-0.015:0.187]) i*25.4];
-
     heights = key_code_to_heights(bitting, depth_table);
 
     difference() {
