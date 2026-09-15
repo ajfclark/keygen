@@ -4,8 +4,8 @@ include <lockwood.gen.scad>
 function key_code_to_heights(code, depth_table) = [for(i=key_enum(code)) depth_table[search(code[i], "0123456789A")[0]]];
 
 module lockwood_classic(bitting="",
-                       outline_name="LW4",
-                       warding_name="default") {
+                       outline_name="5-pin",
+                       warding_name="LW4") {
 
     name = "Lockwood";
 
@@ -14,25 +14,25 @@ module lockwood_classic(bitting="",
         Example: 25363
     */
 
-    outlines_k = ["LW4","LW5"];
+    outlines_k = ["5-pin","6-pin"];
     outlines_v = [
 		[
-			outline_LW4_points,
-			outline_LW4_paths,
-			[-outline_LW4_points[7][0], -outline_LW4_points[7][1]],
+			outline_5pin_points,
+			outline_5pin_paths,
+			[-outline_5pin_points[7][0], -outline_5pin_points[7][1]],
 			"",
 			""
 		],
 		[
-			outline_LW5_points,
-			outline_LW5_paths,
-			[-outline_LW5_points[7][0], -outline_LW5_points[7][1]],
+			outline_6pin_points,
+			outline_6pin_paths,
+			[-outline_6pin_points[7][0], -outline_6pin_points[7][1]],
 			"",
 			""
 		]
 	];
-    wardings_k = ["default"];
-    wardings_v = [warding_default_points];
+    wardings_k = ["LW4","LW4R"];
+    wardings_v = [warding_LW4_points,warding_LW4R_points];
 
     outline_param = key_lkup(outlines_k, outlines_v, outline_name);
     outline_points = outline_param[0];
@@ -67,6 +67,6 @@ module lockwood_classic(bitting="",
 
 // Defaults
 bitting="";
-outline="LW4";
-warding="default";
+outline="5-pin";
+warding="LW4";
 lockwood_classic(bitting, outline, warding);
