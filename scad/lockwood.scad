@@ -14,8 +14,15 @@ module lockwood_classic(bitting="",
         Example: 25363
     */
 
-    outlines_k = ["5-pin"];
+    outlines_k = ["5-pin","6-pin"];
     outlines_v = [
+		[
+			outline_5pin_points,
+			outline_5pin_paths,
+			[-outline_5pin_points[7][0], -outline_5pin_points[7][1]],
+			"",
+			""
+		],
 		[
 			outline_5pin_points,
 			outline_5pin_paths,
@@ -36,7 +43,7 @@ module lockwood_classic(bitting="",
 
     warding_points = key_lkup(wardings_k, wardings_v, warding_name);
     
-    cut_locations = [for(i=[.240:0.1563:1.022]) i*25.4];
+    cut_locations = [for(i=[.240:0.1563:1.1783]) i*25.4];
     depth_table = [for(i=[0.337:-0.015:0.187]) i*25.4];
     heights = key_code_to_heights(bitting, depth_table);
 
