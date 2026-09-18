@@ -15,9 +15,9 @@ module gainsborough_classic(bitting="",
     outlines_k = ["5-pin"];
     outlines_v = [
 		[
-			outline_5pin_points,
-			outline_5pin_paths,
-			[-outline_5pin_points[7][0], -outline_5pin_points[7][1]],
+			outline_5-pin_points,
+			outline_5-pin_paths,
+			[-outline_5-pin_points[7][0], -outline_5-pin_points[7][1]],
 			"",
 			""
 		]
