@@ -8,16 +8,18 @@ module gainsborough_classic(bitting="",
     name = "Gainsborough";
 
     /*
-        Bitting is specified from bow to tip, 0-A, with 0 being the shallowest cut and A being the deepest.
+        Bitting is specified from bow to tip, 0-8, with 0 being the shallowest cut and 8 being the deepest.
         Example: 25363
     */
+
+echo(outline_5pin_points);
 
     outlines_k = ["5-pin"];
     outlines_v = [
 		[
-			outline_5-pin_points,
-			outline_5-pin_paths,
-			[-outline_5-pin_points[7][0], -outline_5-pin_points[7][1]],
+			outline_5pin_points,
+			outline_5pin_paths,
+			[-outline_5pin_points[0][0], -outline_5pin_points[0][1]],
 			"",
 			""
 		]
@@ -60,4 +62,4 @@ module gainsborough_classic(bitting="",
 bitting="";
 outline="5-pin";
 warding="TE2";
-gainborough_classic(bitting, outline, warding);
+gainsborough_classic(bitting, outline, warding);
