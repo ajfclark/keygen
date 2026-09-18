@@ -19,7 +19,7 @@ echo(outline_5pin_points);
 		[
 			outline_5pin_points,
 			outline_5pin_paths,
-			[-outline_5pin_points[0][0], -outline_5pin_points[0][1]],
+			[-outline_5pin_points[46][0], -outline_5pin_points[26][1]],
 			"",
 			""
 		]
