@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 
 # openscad.py
 
@@ -234,18 +234,16 @@ class OpenSCAD( inkex.Effect ):
 
         inkex.Effect.__init__( self )
 
-        self.OptionParser.add_option( "--tab",    #NOTE: value is not used.
-            action="store", type="string",
-            dest="tab", default="splash",
+        self.arg_parser.add_argument( "--tab",    #NOTE: value is not used.
+            default="splash",
             help="The active tab when Apply was pressed" )
 
-        self.OptionParser.add_option('--smoothness', dest='smoothness',
-            type='float', default=float( 0.02 ), action='store',
+        self.arg_parser.add_argument('--smoothness',
+            type=float, default=float( 0.02 ),
             help='Curve smoothing (less for more)' )
 
-        self.OptionParser.add_option('--fname', dest='fname',
-            type='string', default='~/inkscape.scad',
-            action='store',
+        self.arg_parser.add_argument('--fname', 
+            default='~/inkscape.scad',
             help='Curve smoothing (less for more)' )
 
         self.cx = float( DEFAULT_WIDTH ) / 2.0
@@ -450,8 +448,8 @@ class OpenSCAD( inkex.Effect ):
 
         # Determine which polys contain which
 
-        contains     = [ [] for i in xrange( len( path ) ) ]
-        contained_by = [ [] for i in xrange( len( path ) ) ]
+        contains     = [ [] for i in range( len( path ) ) ]
+        contained_by = [ [] for i in range( len( path ) ) ]
 
         for i in range( 0, len( path ) ):
             for j in range( i + 1, len( path ) ):
