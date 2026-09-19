@@ -1,15 +1,13 @@
 FROM nginx
 WORKDIR /keygen
-RUN <<EOF
-apt-get update
-apt-get install -y python3 openscad make python3-tinycss2 inkscape
-EOF
-COPY . /keygen/
-RUN <<EOF
-make clean
-make
-mv /keygen/docker/settings.js /keygen/web/js/
-mv /keygen/docker/nginx.conf /etc/nginx/conf.d/default.conf
-mv /keygen/docker/keygen.sh /docker-entrypoint.d/
-EOF
+COPY bin bin
+COPY web web
+COPY scad scad
+COPY Makefile ./
+COPY docker/settings.js /keygen/web/js/
+COPY docker/nginx.conf /etc/nginx/conf.d/default.conf
+COPY docker/keygen.sh /docker-entrypoint.d/
+RUN apt-get update
+RUN apt-get install -y python3 openscad make
+WORKDIR /keygen/build
 EXPOSE 80/tcp
