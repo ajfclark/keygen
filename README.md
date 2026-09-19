@@ -40,6 +40,18 @@ All remaining arguments are passed to OpenSCAD.
 
 There is a very limited selection of keys right now, to help out, see the guide on [how to model keys](doc/how_to_model_keys.md).
 
+## Docker
+
+There's a Dockerfile that uses the nginx image to present the website.
+
+For example, to make the website available on http://localhost:80/
+
+```
+docker build --tag keygen .
+docker run -p 80:80 keygen
+```
+
 ## Music
 
 There is no keygen music yet, in the meantime, try [here](https://soundcloud.com/dualtrax/sets/orion-keygen-music)
+
