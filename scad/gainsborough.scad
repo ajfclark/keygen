@@ -1,8 +1,6 @@
 use <keygen.scad>
 include <gainsborough.gen.scad>
 
-function key_code_to_heights(code, depth_table) = [for(i=key_enum(code)) depth_table[search(code[i], "876543210")[0]]];
-
 module gainsborough_classic(bitting="",
                        outline_name="5-pin",
                        warding_name="TE2") {
@@ -10,7 +8,7 @@ module gainsborough_classic(bitting="",
     name = "Gainsborough";
 
     /*
-        Bitting is specified from bow to tip, 8-0, with 8 being the shallowest cut and 0 being the deepest.
+        Bitting is specified from bow to tip, 0-8, with 0 being the shallowest cut and 8 being the deepest.
         Example: 25363
     */
 
