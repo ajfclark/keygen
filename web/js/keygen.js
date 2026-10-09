@@ -71,8 +71,11 @@ function generate_key() {
 
             var blob = new Blob([key_stl], {type: "application/sla"});
             var objectUrl = URL.createObjectURL(blob);
+			var key = $("#key_type").val();
+        	var outline = $("#key_outline").val();
+        	var warding = $("#key_warding").val();
             var bitting = $("#key_bitting").val();
-            var filename = (bitting ? bitting : "keyblank") + ".stl";
+            var filename = (key ? key.substr(5,key.length-10) + "_" : "key_") + (outline ? outline + "_" : "") + (warding ? warding + "_" : "") + (bitting ? bitting : "keyblank") + ".stl";
             $("#key_download").attr("href", objectUrl).attr("download", filename);
         } else {
             alert("An error occurred");
