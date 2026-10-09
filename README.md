@@ -44,11 +44,11 @@ There is a very limited selection of keys right now, to help out, see the guide 
 
 There's a Dockerfile that uses the nginx image to present the website.
 
-For example, to make the website available on http://localhost:80/
+For example, to make the website available on http://localhost:8080/
 
 ```
-docker build --tag keygen .
-docker run -p 80:80 keygen
+docker build --tag keygen:latest .
+docker run -p 127.0.0.1:8080:80 -d keygen
 ```
 
 ## Music
